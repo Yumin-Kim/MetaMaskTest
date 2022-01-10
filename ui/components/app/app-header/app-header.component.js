@@ -5,7 +5,7 @@ import Identicon from '../../ui/identicon';
 import MetaFoxLogo from '../../ui/metafox-logo';
 import { DEFAULT_ROUTE } from '../../../helpers/constants/routes';
 import NetworkDisplay from '../network-display';
-
+// Header 파일
 export default class AppHeader extends PureComponent {
   static propTypes = {
     history: PropTypes.object,
@@ -65,7 +65,14 @@ export default class AppHeader extends PureComponent {
       disabled,
       isAccountMenuOpen,
     } = this.props;
-
+    console.log('Header >> renderAccountMenu Method');
+    console.log(
+      isUnlocked,
+      toggleAccountMenu,
+      selectedAddress,
+      disabled,
+      isAccountMenuOpen,
+    );
     return (
       isUnlocked && (
         <div

@@ -77,6 +77,7 @@ const NetworksTab = ({ addNewNetwork }) => {
   }
 
   useEffect(() => {
+    console.log('Network Tab UseEffect');
     return () => {
       dispatch(setSelectedSettingsRpcUrl(''));
     };

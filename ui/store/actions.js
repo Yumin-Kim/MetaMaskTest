@@ -1565,7 +1565,9 @@ export function createRetryTransaction(txId, customGasSettings) {
 export function setProviderType(type) {
   return async (dispatch) => {
     log.debug(`background.setProviderType`, type);
-
+    console.log('Mainnet Button click');
+    console.log('actions >>>  setProviderType');
+    console.log('promisifiedBackground');
     try {
       await promisifiedBackground.setProviderType(type);
     } catch (error) {
@@ -1595,7 +1597,7 @@ export function updateAndSetCustomRpc(
     log.debug(
       `background.updateAndSetCustomRpc: ${newRpc} ${chainId} ${ticker} ${nickname}`,
     );
-
+    console.log('promisifiedBackground >>>>>', promisifiedBackground);
     try {
       await promisifiedBackground.updateAndSetCustomRpc(
         newRpc,

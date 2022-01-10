@@ -37,7 +37,7 @@ if (process.env.IN_TEST) {
   defaultProviderConfigOpts = {
     type: NETWORK_TYPE_RPC,
     rpcUrl: 'http://localhost:8545',
-    chainId: '0x539',
+    chainId: '0x5123123',
     nickname: 'Localhost 8545',
   };
 } else if (process.env.METAMASK_DEBUG || env === 'test') {
@@ -287,6 +287,7 @@ export default class NetworkController extends EventEmitter {
   }
 
   async setProviderType(type) {
+    console.log(' init Method ?? >>setProviderType >> Mainnet만 실행됨');
     assert.notStrictEqual(
       type,
       NETWORK_TYPE_RPC,
@@ -307,6 +308,7 @@ export default class NetworkController extends EventEmitter {
   }
 
   resetConnection() {
+    console.log('resetConnection');
     this.setProviderConfig(this.getProviderConfig());
   }
 
@@ -316,6 +318,7 @@ export default class NetworkController extends EventEmitter {
    * @param config
    */
   setProviderConfig(config) {
+    console.log('setProviderConfig');
     this.previousProviderStore.updateState(this.getProviderConfig());
     this.providerStore.updateState(config);
     this._switchNetwork(config);

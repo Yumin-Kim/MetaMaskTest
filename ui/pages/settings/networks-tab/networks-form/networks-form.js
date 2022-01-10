@@ -410,6 +410,7 @@ const NetworksForm = ({
           ),
         );
       } else {
+        console.log('else >>> updateAndSetCustomRpc');
         await dispatch(
           updateAndSetCustomRpc(rpcUrl, prefixedChainId, ticker, networkName, {
             ...rpcPrefs,
@@ -417,8 +418,8 @@ const NetworksForm = ({
           }),
         );
       }
-
       if (addNewNetwork) {
+        console.log('setNewNetworkAdded(networkName)');
         dispatch(setNewNetworkAdded(networkName));
         history.push(DEFAULT_ROUTE);
       }

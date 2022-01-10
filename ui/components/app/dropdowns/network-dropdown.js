@@ -118,6 +118,7 @@ class NetworkDropdown extends Component {
         toNetwork: newProviderType,
       },
     });
+    console.log('setProviderType(newProviderType); >> onclick');
     setProviderType(newProviderType);
   }
 
@@ -296,7 +297,8 @@ class NetworkDropdown extends Component {
     );
     const isOpen = this.props.networkDropdownOpen;
     const { t } = this.context;
-
+    console.log('rpcListDetailWithoutLocalHost', rpcListDetailWithoutLocalHost);
+    console.log('rpcListDetailForLocalHost', rpcListDetailForLocalHost);
     return (
       <Dropdown
         isOpen={isOpen}
@@ -354,7 +356,7 @@ class NetworkDropdown extends Component {
         </div>
 
         <div className="network-dropdown-list">
-          {this.renderNetworkEntry('mainnet')}
+          {/* {this.renderNetworkEntry('mainnet')} */}
 
           {this.renderCustomRpcList(
             rpcListDetailWithoutLocalHost,

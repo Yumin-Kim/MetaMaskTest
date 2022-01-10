@@ -46,7 +46,7 @@ export const RINKEBY_RPC_URL = getRpcUrl('rinkeby');
 export const KOVAN_RPC_URL = getRpcUrl('kovan');
 export const MAINNET_RPC_URL = getRpcUrl('mainnet');
 export const GOERLI_RPC_URL = getRpcUrl('goerli');
-export const LOCALHOST_RPC_URL = 'http://localhost:8545';
+export const LOCALHOST_RPC_URL = 'http://localhost:1235';
 
 export const ETH_SYMBOL = 'ETH';
 export const WETH_SYMBOL = 'WETH';

@@ -526,6 +526,7 @@ export function getSubjectMetadata(state) {
 }
 
 export function getRpcPrefsForCurrentProvider(state) {
+  console.log('getRpcPrefsForCurrentProvider', state);
   const { frequentRpcListDetail, provider } = state.metamask;
   const selectRpcInfo = frequentRpcListDetail.find(
     (rpcInfo) => rpcInfo.rpcUrl === provider.rpcUrl,

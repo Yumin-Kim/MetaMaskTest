@@ -33,7 +33,7 @@ export default function createJsonRpcClient({ rpcUrl, chainId }) {
     createBlockTrackerInspectorMiddleware({ blockTracker }),
     fetchMiddleware,
   ]);
-
+  console.log({ rpcUrl, chainId }, { networkMiddleware, blockTracker });
   return { networkMiddleware, blockTracker };
 }
 

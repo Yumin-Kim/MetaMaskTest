@@ -589,6 +589,10 @@ export default class MetamaskController extends EventEmitter {
       ) {
         const txMeta = this.txController.txStateManager.getTransaction(txId);
         const frequentRpcListDetail = this.preferencesController.getFrequentRpcListDetail();
+        console.log(
+          'this.txController.on(`tx:status-update`',
+          frequentRpcListDetail,
+        );
         let rpcPrefs = {};
         if (txMeta.chainId) {
           const rpcSettings = frequentRpcListDetail.find(

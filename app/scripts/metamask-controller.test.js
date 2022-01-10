@@ -19,7 +19,7 @@ const firstTimeState = {
   NetworkController: {
     provider: {
       type: NETWORK_TYPE_RPC,
-      rpcUrl: 'http://localhost:8545',
+      rpcUrl: 'http://localhost:8541',
       chainId: '0x539',
     },
     networkDetails: {
