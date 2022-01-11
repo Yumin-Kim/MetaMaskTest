@@ -12,10 +12,10 @@ const initialState = {
   PreferencesController: {
     frequentRpcListDetail: [
       {
-        rpcUrl: 'http://localhost:8545',
-        chainId: '0x539',
+        rpcUrl: 'http://18.139.114.143:5006',
+        chainId: '0x1a8a',
         ticker: 'ETH',
-        nickname: 'Localhost 8545',
+        nickname: 'XRUN 메인 넷',
         rpcPrefs: {},
       },
     ],
