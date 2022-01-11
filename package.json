@@ -1,10 +1,10 @@
 {
   "name": "metamask-crx",
-  "version": "10.8.2",
+  "version": "1.0.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/MetaMask/metamask-extension.git"
+    "url": "https://github.com/sungjius/RN-mask"
   },
   "scripts": {
     "setup": "yarn install && yarn setup:postinstall",
