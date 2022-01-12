@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import NetworksListItem from '../networks-list-item';
+import { NETWORK_TYPE_RPC } from '../../../../../shared/constants/network';
 
 const NetworksList = ({
   networkIsSelected,
@@ -16,14 +17,18 @@ const NetworksList = ({
           networkIsSelected && !networkDefaultedToProvider,
       })}
     >
-      {networksToRender.map((network) => (
-        <NetworksListItem
-          key={`settings-network-list:${network.rpcUrl}`}
-          network={network}
-          networkIsSelected={networkIsSelected}
-          selectedRpcUrl={selectedRpcUrl}
-        />
-      ))}
+      {networksToRender.map((network) => {
+        if (network.providerType === NETWORK_TYPE_RPC) {
+          return (
+            <NetworksListItem
+              key={`settings-network-list:${network.rpcUrl}`}
+              network={network}
+              networkIsSelected={networkIsSelected}
+              selectedRpcUrl={selectedRpcUrl}
+            />
+          );
+        }
+      })}
     </div>
   );
 };

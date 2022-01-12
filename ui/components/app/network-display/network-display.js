@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { useSelector } from 'react-redux';
 import {
+  MAINNET,
   NETWORK_TYPE_RPC,
   NETWORK_TYPE_TO_ID_MAP,
 } from '../../../../shared/constants/network';
@@ -28,16 +29,29 @@ export default function NetworkDisplay({
   targetNetwork,
   onClick,
 }) {
+  console.log();
   const networkIsLoading = useSelector(isNetworkLoading);
-  const currentNetwork = useSelector((state) => ({
+  let currentNetwork = useSelector((state) => ({
     nickname: state.metamask.provider.nickname,
     type: state.metamask.provider.type,
   }));
+
   const t = useI18nContext();
 
-  const { nickname: networkNickname, type: networkType } =
+  let { nickname: networkNickname, type: networkType } =
     targetNetwork ?? currentNetwork;
-
+  console.log('targetNetwork', targetNetwork);
+  console.log('currentNetwork', currentNetwork);
+  console.log('networkType', networkType);
+  useEffect(() => {
+    console.log(
+      'networkType !== NETWORK_TYPE_RPC',
+      networkType !== NETWORK_TYPE_RPC,
+    );
+    if (networkType !== NETWORK_TYPE_RPC) {
+      currentNetwork = { nickname: 'XRUN 메인넷', type: 'rpc' };
+    }
+  }, []);
   return (
     <Chip
       borderColor={outline ? COLORS.UI3 : COLORS.TRANSPARENT}
@@ -67,8 +81,8 @@ export default function NetworkDisplay({
       }
       label={
         networkType === NETWORK_TYPE_RPC
-          ? networkNickname ?? t('privateNetwork')
-          : t(networkType)
+          ? networkNickname ?? '네트워크를 선택해주세요'
+          : '네트워크를 선택 해주세요'
       }
       className={classnames('network-display', {
         'network-display--colored': colored,

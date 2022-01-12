@@ -153,6 +153,7 @@ class NetworkDropdown extends Component {
   }
 
   renderCustomRpcList(rpcListDetail, provider, opts = {}) {
+    console.log('Hello renderCustomRpcList');
     const reversedRpcListDetail = rpcListDetail.slice().reverse();
 
     return reversedRpcListDetail.map((entry) => {
@@ -173,9 +174,12 @@ class NetworkDropdown extends Component {
           key={`common${rpcUrl}`}
           closeMenu={() => this.props.hideNetworkDropdown()}
           onClick={() => {
+            console.log('DropdownMenuItem >>> asdasdasd');
             if (isPrefixedFormattedHexString(chainId)) {
+              console.log('DropdownMenuItem >>> true division');
               this.props.setRpcTarget(rpcUrl, chainId, ticker, nickname);
             } else {
+              console.log('DropdownMenuItem >>> false division');
               this.props.displayInvalidCustomNetworkAlert(nickname || rpcUrl);
             }
           }}
@@ -356,7 +360,8 @@ class NetworkDropdown extends Component {
         </div>
 
         <div className="network-dropdown-list">
-          {/* {this.renderNetworkEntry('mainnet')} */}
+          {/* {this.renderNetworkEntry('mainnet')}
+           */}
 
           {this.renderCustomRpcList(
             rpcListDetailWithoutLocalHost,
@@ -365,10 +370,10 @@ class NetworkDropdown extends Component {
 
           {shouldShowTestNetworks && (
             <>
-              {this.renderNetworkEntry('ropsten')}
+              {/* {this.renderNetworkEntry('ropsten')}
               {this.renderNetworkEntry('kovan')}
               {this.renderNetworkEntry('rinkeby')}
-              {this.renderNetworkEntry('goerli')}
+              {this.renderNetworkEntry('goerli')} */}
               {this.renderCustomRpcList(
                 rpcListDetailForLocalHost,
                 this.props.provider,
